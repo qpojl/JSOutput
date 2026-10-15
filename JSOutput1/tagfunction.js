@@ -1,11 +1,16 @@
 
 const hoge = "ほげ";
 const fuga = "ふが";
-const view = tagfunction`<div>${hoge}と${fuga}</div>`;
+const view = tagFunction`<div>${hoge}と${fuga}</div>`;
 
-function tagfunction(string, ...values){
-    console.log(string);
-    console.log(...values);
+function tagFunction(strings, ...values){
+    console.log(strings);
+    console.log(values);
+    return strings.reduce((result,str,i)=>{
+        return result + values[i-1] + str;
+
+    });
 }
 
 
+console.log(view);
